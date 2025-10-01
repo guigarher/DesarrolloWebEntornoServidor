@@ -1,0 +1,8 @@
+
+
+
+SERVIDORES:
+-Dedicado : Linux/Windows
+-Servicio en la nube: AWS/Azure/GoogleCloud
+
+Panel de control > Programas > Activar o Desactivar las características de Windows >Internet Information Services
