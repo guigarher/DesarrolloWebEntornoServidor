@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario simple</title>
+</head>
+<body>
+  <h1>Formulario</h1>
+
+  <form action="respuesta.php" method="post">
+    <label>Nombre:
+      <input type="text" name="nombre" required>
+    </label>
+    <br><br>
+
+    <label>Apellido:
+      <input type="text" name="apellido" required>
+    </label>
+    <br><br>
+
+    <label>E-mail:
+      <input type="email" name="email" required>
+    </label>
+    <br><br>
+
+    <label>Número de repeticiones:
+      <input type="number" name="veces" min="1" value="1" required>
+    </label>
+    <br><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+</body>
+</html>
