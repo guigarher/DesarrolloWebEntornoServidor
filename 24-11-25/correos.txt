@@ -1,0 +1,3 @@
+juan@example.com;Hola Juan, este es tu mensaje de prueba.
+maria@example.com;Hola María, recuerda que mañana tienes cita.
+prueba@example.com;Hola, este es un mensaje genérico.
