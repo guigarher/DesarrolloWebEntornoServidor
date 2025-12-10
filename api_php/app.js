@@ -1,6 +1,4 @@
-// Ajusta la ruta si tu PHP no está en la misma carpeta
-// Por ejemplo: const API_URL = "http://localhost/basedatosdsw/api-productos.php";
-const API_URL = "api-productos.php";
+const API_URL = "api_productos.php";
 
 const tbody = document.getElementById("tbody-productos");
 const form = document.getElementById("form-producto");
