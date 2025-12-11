@@ -3,6 +3,7 @@ const API_URL = "api_productos.php";
 const tbody = document.getElementById("tbody-productos");
 const form = document.getElementById("form-producto");
 const mensajes = document.getElementById("mensajes");
+const jsonProductos = document.getElementById("json-productos");
 
 // Cargar productos al entrar en la página
 async function cargarProductos() {
@@ -13,6 +14,9 @@ async function cargarProductos() {
     }
     const productos = await res.json();
     pintarTabla(productos);
+    if (jsonProductos) {
+      jsonProductos.textContent = JSON.stringify(productos, null, 2);
+    }
   } catch (err) {
     mensajes.textContent = " " + err.message;
   }
@@ -64,7 +68,7 @@ form.addEventListener("submit", async (e) => {
       throw new Error(data.error || "Error al crear el producto");
     }
 
-    mensajes.textContent = "✅ " + data.mensaje;
+    mensajes.textContent = " " + data.mensaje;
 
     //recargar la tabla
     await cargarProductos();
