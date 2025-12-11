@@ -14,7 +14,7 @@ async function cargarProductos() {
     const productos = await res.json();
     pintarTabla(productos);
   } catch (err) {
-    mensajes.textContent = "❌ " + err.message;
+    mensajes.textContent = " " + err.message;
   }
 }
 
@@ -66,14 +66,13 @@ form.addEventListener("submit", async (e) => {
 
     mensajes.textContent = "✅ " + data.mensaje;
 
-    // Opcional: recargar la tabla (o añadir solo el nuevo)
+    //recargar la tabla
     await cargarProductos();
     form.reset();
 
   } catch (err) {
-    mensajes.textContent = "❌ " + err.message;
+    mensajes.textContent = " " + err.message;
   }
 });
 
-// Llamamos al cargar la página
 cargarProductos();

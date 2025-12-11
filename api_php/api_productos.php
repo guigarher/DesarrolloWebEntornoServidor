@@ -24,7 +24,7 @@ try {
         // Ejecutamos la consulta 
         $stmt = $pdo->query($sql);
 
-        // Obtenemos todos los productos como array de arrays asociativos
+        // Obtenemos todos los productos
         $productos = $stmt->fetchAll();
 
         // Convertimos el array PHP a JSON 
@@ -35,13 +35,12 @@ try {
     if ($method === "POST") {
         $json = file_get_contents("php://input");
 
-        //Convertir ese JSON a array de PHP.
-        //    El segundo parámetro 'true' hace que devuelva array asociativo.
+        //Convertir ese JSON a array de PHP
         $data = json_decode($json, true);
 
         //Validaciones
         if (!isset($data["Nombre"]) || !isset($data["PVP"])) {
-            http_response_code(400); // 400 = petición incorrecta
+            http_response_code(400); 
             echo json_encode(["error" => "Faltan campos obligatorios: Nombre y PVP."]);
             exit;
         }
@@ -87,13 +86,11 @@ try {
         ]);
         exit;
     }
-    //   SI ES OTRO MÉTODO → NO
-    // Por ejemplo, PUT, DELETE... que de momento no manejamos
+    
     http_response_code(405); // 405 = método no permitido
     echo json_encode(["error" => "Método no permitido"]);
 
 } catch (PDOException $e) {
-    // Cualquier error de base de datos se captura aquí
     http_response_code(500); // 500 = error interno del servidor
     echo json_encode([
         "error"   => "Error de base de datos",

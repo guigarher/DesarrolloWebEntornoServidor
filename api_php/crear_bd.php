@@ -25,7 +25,7 @@ try {
     ]);
 
     //Crear tabla productos
-    $sqlCrearTabla = "api
+    $sqlCrearTabla = "
         CREATE TABLE IF NOT EXISTS productos (
             ID              INT(11) NOT NULL AUTO_INCREMENT,
             Nombre          VARCHAR(255) NOT NULL,

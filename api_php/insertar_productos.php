@@ -9,7 +9,7 @@ try {
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ]);
 
-    echo "<h1>Insertando productos de demo...</h1>";
+    echo "<h1>Insertando productos...</h1>";
 
     //Array de productos de prueba
     $productosDemo = [
@@ -69,11 +69,11 @@ try {
             ':FechaCaducidad' => $p['FechaCaducidad']
         ]);
         $insertados++;
-        echo "✅ Insertado: " . htmlspecialchars($p['Nombre']) . "<br>";
+        echo "Insertado: " . htmlspecialchars($p['Nombre']) . "<br>";
     }
 
     echo "<br><strong>Productos insertados: $insertados</strong><br>";
 
 } catch (PDOException $e) {
-    echo "❌ Error: " . $e->getMessage();
+    echo "Error: " . $e->getMessage();
 }
