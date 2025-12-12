@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Prueba API Productos (PHP + JSON)</title>
+  <meta charset="UTF-8" />
+  <title>CRUD Productos (PHP + JSON)</title>
 </head>
 <body>
-  <h1>Productos</h1>
+  <h1>CRUD Productos</h1>
 
   <section>
     <h2>Listado de productos</h2>
@@ -19,52 +19,59 @@
           <th>PVP</th>
           <th>Fecha caducidad</th>
           <th>Actualizado</th>
+          <th>Acciones</th>
         </tr>
       </thead>
-      <tbody id="tbody-productos">
-      </tbody>
+      <tbody id="tbody-productos"></tbody>
     </table>
   </section>
 
   <section>
-    <h2>Datos en formato JSON</h2>
-    <pre id="json-productos"></pre>
+    <h2>Crear nuevo producto (POST)</h2>
+    <form id="form-producto">
+      <div>
+        <label>Nombre <input type="text" id="nombre" required></label>
+      </div>
+      <div>
+        <label>Código de barras <input type="text" id="codigoBarras"></label>
+      </div>
+      <div>
+        <label>Código interno <input type="text" id="codigo"></label>
+      </div>
+      <div>
+        <label>PVP <input type="number" step="0.01" id="pvp" required></label>
+      </div>
+      <div>
+        <label>Fecha de caducidad <input type="date" id="fechaCaducidad"></label>
+      </div>
+      <button type="submit">Guardar producto</button>
+    </form>
   </section>
 
   <section>
-    <h2>Crear nuevo producto</h2>
-    <form id="form-producto">
+    <h2>Editar producto (PUT)</h2>
+    <form id="form-editar">
       <div>
-        <label>
-          Nombre 
-          <input type="text" id="nombre" required>
-        </label>
+        <label>ID <input type="number" id="editId" required></label>
       </div>
       <div>
-        <label>
-          Código de barras
-          <input type="text" id="codigoBarras">
-        </label>
+        <label>Nombre <input type="text" id="editNombre"></label>
       </div>
       <div>
-        <label>
-          Código interno
-          <input type="text" id="codigo">
-        </label>
+        <label>PVP <input type="number" step="0.01" id="editPvp"></label>
       </div>
+      <button type="submit">Actualizar (PUT)</button>
+      <p><small>Deja campos vacíos si no quieres cambiarlos.</small></p>
+    </form>
+  </section>
+
+  <section>
+    <h2>Borrar producto (DELETE)</h2>
+    <form id="form-borrar">
       <div>
-        <label>
-          PVP 
-          <input type="number" step="0.01" id="pvp" required>
-        </label>
+        <label>ID <input type="number" id="deleteId" required></label>
       </div>
-      <div>
-        <label>
-          Fecha de caducidad
-          <input type="date" id="fechaCaducidad">
-        </label>
-      </div>
-      <button type="submit">Guardar producto</button>
+      <button type="submit">Eliminar (DELETE)</button>
     </form>
   </section>
 
