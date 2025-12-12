@@ -1,4 +1,5 @@
 const API_URL = "api_productos.php";
+/*https://localhost/api_php/api_productos.php*/
 
 const tbody         = document.getElementById("tbody-productos");
 const formCrear     = document.getElementById("form-producto");
