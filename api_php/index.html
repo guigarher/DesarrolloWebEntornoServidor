@@ -1,81 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>CRUD Productos (PHP + JSON)</title>
+  <meta charset="UTF-8">
+  <title>Productos</title>
 </head>
 <body>
-  <h1>CRUD Productos</h1>
 
-  <section>
-    <h2>Listado de productos</h2>
-    <table border="1">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Código barras</th>
-          <th>Código interno</th>
-          <th>PVP</th>
-          <th>Fecha caducidad</th>
-          <th>Actualizado</th>
-        </tr>
-      </thead>
-      <tbody id="tbody-productos"></tbody>
-    </table>
-  </section>
+<h1>Listado de productos</h1>
 
-  <section>
-    <h2>Crear nuevo producto (POST)</h2>
-    <form id="form-producto">
-      <div>
-        <label>Nombre <input type="text" id="nombre" required></label>
-      </div>
-      <div>
-        <label>Código de barras <input type="text" id="codigoBarras"></label>
-      </div>
-      <div>
-        <label>Código interno <input type="text" id="codigo"></label>
-      </div>
-      <div>
-        <label>PVP <input type="number" step="0.01" id="pvp" required></label>
-      </div>
-      <div>
-        <label>Fecha de caducidad <input type="date" id="fechaCaducidad"></label>
-      </div>
-      <button type="submit">Guardar producto</button>
-    </form>
-  </section>
+<p id="mensaje"></p>
 
-  <section>
-    <h2>Editar producto (PUT)</h2>
-    <form id="form-editar">
-      <div>
-        <label>ID <input type="number" id="editId" required></label>
-      </div>
-      <div>
-        <label>Nombre <input type="text" id="editNombre"></label>
-      </div>
-      <div>
-        <label>PVP <input type="number" step="0.01" id="editPvp"></label>
-      </div>
-      <button type="submit">Actualizar (PUT)</button>
-      <p><small>Deja campos vacíos si no quieres cambiarlos.</small></p>
-    </form>
-  </section>
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>PVP</th>
+    </tr>
+  </thead>
+  <tbody id="tabla"></tbody>
+</table>
 
-  <section>
-    <h2>Borrar producto (DELETE)</h2>
-    <form id="form-borrar">
-      <div>
-        <label>ID <input type="number" id="deleteId" required></label>
-      </div>
-      <button type="submit">Eliminar (DELETE)</button>
-    </form>
-  </section>
-
-  <pre id="mensajes"></pre>
-
-  <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
