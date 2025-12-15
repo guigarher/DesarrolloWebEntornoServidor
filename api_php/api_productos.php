@@ -24,6 +24,7 @@ try {
         ]);
     }
 
+<<<<<<< HEAD
     $stmt = $pdo->query("
     SELECT ID, Nombre, CodigoBarras, Codigo, PVP, FechaCaducidad, FechaActualizacion
     FROM productos
@@ -32,13 +33,22 @@ try {
     $productos = $stmt->fetchAll();
 
 
+=======
+    $stmt = $pdo->query("SELECT * FROM productos ORDER BY ID DESC");
+    $productos = $stmt->fetchAll();
+
+>>>>>>> 6b8c221e71a847da72796243e5846467ea50a776
     responder(200, [
         "ok" => true,
         "data" => $productos
     ]);
 
 } catch (PDOException $e) {
+<<<<<<< HEAD
     // 🔥 MySQL apagado / error de conexión
+=======
+    //error de conexión
+>>>>>>> 6b8c221e71a847da72796243e5846467ea50a776
     responder(500, [
         "error" => "No hay conexión con la base de datos",
         "code"  => "DB_ERROR"

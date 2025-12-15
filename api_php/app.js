@@ -26,16 +26,23 @@ async function cargar() {
       tr.innerHTML = `
         <td>${p.ID}</td>
         <td>${p.Nombre}</td>
+<<<<<<< HEAD
         <td>${p.CodigoBarras ?? ""}</td>
         <td>${p.Codigo ?? ""}</td>
         <td>${p.PVP}</td>
         <td>${p.FechaCaducidad ?? ""}</td>
         <td>${p.FechaActualizacion ?? ""}</td>
+=======
+        <td>${p.PVP}</td>
+>>>>>>> 6b8c221e71a847da72796243e5846467ea50a776
       `;
       tabla.appendChild(tr);
     });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6b8c221e71a847da72796243e5846467ea50a776
   } catch (e) {
     mensaje.textContent = "❌ No se pudo contactar con la API";
   }
