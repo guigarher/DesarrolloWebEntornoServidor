@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Front de prueba (otro alumno) - API Productos</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 24px; line-height: 1.35; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 900px){ .row { grid-template-columns: 1fr; } }
+    fieldset { border: 1px solid #ddd; padding: 16px; border-radius: 10px; }
+    label { display:block; margin-top: 10px; font-size: 14px; }
+    input { width: 100%; padding: 10px; margin-top: 6px; box-sizing: border-box; }
+    button { padding: 10px 14px; margin-top: 12px; cursor:pointer; }
+    pre { background:#f7f7f7; padding: 12px; border-radius: 10px; overflow:auto; }
+    .ok { color: #0a7; font-weight: 700; }
+    .bad { color: #c00; font-weight: 700; }
+    .top { display:flex; gap:12px; align-items:flex-end; flex-wrap:wrap; }
+    .top > div { min-width: 280px; flex: 1; }
+  </style>
+</head>
+<body>
+  <h1>Front de prueba (independiente) — API Productos</h1>
+  <p>
+    Esta página está pensada para simular el “front de otro alumno”.
+    Funciona desde Live Server u otro puerto y consume tu API con <code>fetch</code>.
+  </p>
+
+  <div class="top">
+    <div>
+      <label>URL del endpoint</label>
+      <input id="apiUrl" value="http://localhost/api_php/api_productos.php" />
+      <small>Ej: <code>http://localhost/api_php/api_productos.php</code></small>
+    </div>
+    <div style="flex:0 0 auto">
+      <button id="btnListar">GET / productos</button>
+      <button id="btnProbarCORS">Probar CORS</button>
+    </div>
+  </div>
+
+  <p id="estado"></p>
+
+  <div class="row">
+    <fieldset>
+      <legend><strong>POST</strong> — Crear producto</legend>
+
+      <label>Nombre *</label>
+      <input id="pNombre" placeholder="Ej: Pan" />
+
+      <label>PVP *</label>
+      <input id="pPvp" type="number" step="0.01" placeholder="Ej: 1.25" />
+
+      <label>Código de barras</label>
+      <input id="pCB" placeholder="Ej: 841..." />
+
+      <label>Código</label>
+      <input id="pCodigo" placeholder="Ej: PAN-001" />
+
+      <label>Fecha caducidad (YYYY-MM-DD)</label>
+      <input id="pFecha" placeholder="2026-05-01" />
+
+      <button id="btnCrear">Crear (POST)</button>
+    </fieldset>
+
+    <fieldset>
+      <legend><strong>PUT</strong> — Actualizar producto</legend>
+
+      <label>ID *</label>
+      <input id="uId" type="number" placeholder="Ej: 3" />
+
+      <label>Nombre *</label>
+      <input id="uNombre" placeholder="Ej: Pan integral" />
+
+      <label>PVP *</label>
+      <input id="uPvp" type="number" step="0.01" placeholder="Ej: 1.40" />
+
+      <label>Código de barras</label>
+      <input id="uCB" placeholder="Ej: 841..." />
+
+      <label>Código</label>
+      <input id="uCodigo" placeholder="Ej: PAN-002" />
+
+      <label>Fecha caducidad (YYYY-MM-DD)</label>
+      <input id="uFecha" placeholder="2026-05-10" />
+
+      <button id="btnActualizar">Actualizar (PUT)</button>
+    </fieldset>
+
+    <fieldset>
+      <legend><strong>DELETE</strong> — Borrar producto</legend>
+
+      <label>ID *</label>
+      <input id="dId" type="number" placeholder="Ej: 3" />
+
+      <button id="btnBorrar">Borrar (DELETE)</button>
+      <small>Nota: aquí usamos <code>?id=...</code> en la URL, que es lo más simple.</small>
+    </fieldset>
+
+    <fieldset>
+      <legend><strong>GET</strong> — Producto por ID</legend>
+
+      <label>ID *</label>
+      <input id="gId" type="number" placeholder="Ej: 1" />
+
+      <button id="btnGetId">GET por ID</button>
+    </fieldset>
+  </div>
+
+  <h2>Respuesta</h2>
+  <pre id="out">(aquí saldrá el JSON)</pre>
+
+  <script src="./front_prueba_otro.js"></script>
+</body>
+</html>

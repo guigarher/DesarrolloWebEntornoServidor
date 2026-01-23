@@ -9,7 +9,8 @@ async function cargar() {
     const data = await res.json();
 
     if (!res.ok) {
-      mensaje.textContent = "❌ " + data.error;
+      mensaje.textContent =
+        "❌ " + (data.error ?? "Error") + (data.code ? ` (${data.code})` : "");
       return;
     }
 
@@ -21,7 +22,7 @@ async function cargar() {
     mensaje.textContent = "✅ Productos cargados";
     tabla.innerHTML = "";
 
-    data.data.forEach(p => {
+    data.data.forEach((p) => {
       const tr = document.createElement("tr");
       tr.innerHTML = `
         <td>${p.ID}</td>
@@ -34,7 +35,6 @@ async function cargar() {
       `;
       tabla.appendChild(tr);
     });
-
   } catch (e) {
     mensaje.textContent = "❌ No se pudo contactar con la API";
   }
