@@ -20,17 +20,15 @@
   </style>
 </head>
 <body>
-  <h1>Front de prueba (independiente) — API Productos</h1>
+  <h1>Front de prueba — API Productos</h1>
   <p>
     Esta página está pensada para simular el “front de otro alumno”.
-    Funciona desde Live Server u otro puerto y consume tu API con <code>fetch</code>.
   </p>
 
   <div class="top">
     <div>
       <label>URL del endpoint</label>
       <input id="apiUrl" value="http://localhost/api_php/api_productos.php" />
-      <small>Ej: <code>http://localhost/api_php/api_productos.php</code></small>
     </div>
     <div style="flex:0 0 auto">
       <button id="btnListar">GET / productos</button>
@@ -107,7 +105,7 @@
   </div>
 
   <h2>Respuesta</h2>
-  <pre id="out">(aquí saldrá el JSON)</pre>
+  <pre id="out"></pre>
 
   <script src="./front_prueba_otro.js"></script>
 </body>
