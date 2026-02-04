@@ -1,25 +1,25 @@
 <?php
 header("Content-Type: application/json; charset=utf-8");
 
-// CORS (para que cualquier front pueda usar la API)
+// ✅ CORS (para que cualquier front pueda usar tu API)
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 
-// Respuesta a preflight
+// ✅ Respuesta a preflight (muy común con fetch, PUT, DELETE, etc.)
 if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
     http_response_code(204);
     exit;
 }
 
-// Función para responder en JSON
+// Función única para responder siempre en JSON
 function responder(int $status, array $data): void {
     http_response_code($status);
     echo json_encode($data, JSON_UNESCAPED_UNICODE);
     exit;
 }
 
-// Leer JSON del body
+// Leer JSON del body (POST/PUT/DELETE si quieres)
 function leer_json_body(): array {
     $raw = file_get_contents("php://input");
     if ($raw === false || trim($raw) === "") return [];
@@ -34,7 +34,7 @@ function leer_json_body(): array {
     return $data;
 }
 
-// Convertir warnings en excepciones
+// Convertir warnings en excepciones (para capturar warnings como errores controlados)
 set_error_handler(function ($severity, $message) {
     throw new ErrorException($message);
 });
@@ -49,7 +49,7 @@ try {
     // =========================
     if ($method === "GET") {
 
-        
+        // /api_productos.php?id=3 (opcional)
         $id = isset($_GET["id"]) ? (int)$_GET["id"] : 0;
 
         if ($id > 0) {
@@ -95,7 +95,7 @@ try {
     if ($method === "POST") {
         $data = leer_json_body();
 
-        // Validación
+        // Validación mínima
         if (empty($data["Nombre"]) || !isset($data["PVP"])) {
             responder(400, [
                 "ok"    => false,
@@ -150,7 +150,7 @@ try {
             ]);
         }
 
-        // Validación
+        // Validación mínima (puedes permitir updates parciales si quieres; aquí lo dejamos simple)
         if (empty($data["Nombre"]) || !isset($data["PVP"])) {
             responder(400, [
                 "ok"    => false,
